@@ -1,4 +1,7 @@
 name: Remove old artifacts
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   remove-old-artifacts:
