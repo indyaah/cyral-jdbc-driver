@@ -1,7 +1,7 @@
 name: Remove old artifacts
 on:
-  push:
-    branches: [ main ]
+  schedule:
+    - cron: '0 0 18 * *'
 
 jobs:
   remove-old-artifacts:
