@@ -20,6 +20,33 @@ At a high level, the custom drivers work by intercepting the connection requests
 
 ## How to use
 
+### Applications
+Use the driver just like any other JDBC driver.
+1. Declare a dependency on artifact.
+    ```xml
+    <dependency>
+        <groupId>pro.anuj.skunkworks</groupId>
+        <artifactId>cyral-jdbc</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    ```
+2. Use the driver in your code just like any other JDBC driver.
+   1. example for MySQL:
+    ```java
+    Class.forName("pro.anuj.skunkworks.cyral.jdbc.mysql.Driver");
+    Connection connection = DriverManager.getConnection("jdbc:mysql://<host>:<port>/<database>", "<username>", "<password>");
+    ```
+   2. In a spring app:
+   ```yaml
+   spring:
+     datasource:
+        url: jdbc:mysql://cyral.acme.com:3306
+        username: root
+        password: root
+        driverClassName: pro.anuj.skunkworks.cyral.jdbc.CyralMySqlDriver
+    ```
+3. The driver will automatically inject the access token into the connection request.
+
 ### IntelliJ IDEA based IDEs
 1. Download and save custom JDBC drivers for Cyral from GitHub releases.
     https://github.com/indyaah/cyral-jdbc-driver/releases
